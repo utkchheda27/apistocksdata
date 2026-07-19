@@ -1,0 +1,23 @@
+{
+  "private": true,
+  "name": "apistocksdata",
+  "version": "1.0.0",
+  "license": "BSD-3-Clause",
+  "type": "module",
+  "scripts": {
+    "scan": "node --env-file-if-exists=.env --experimental-strip-types --no-warnings=ExperimentalWarning src/index.ts",
+    "format": "npm run lint -- --fix",
+    "lint": "biome check --error-on-warnings",
+    "test": "npm run test:types && npm run lint && npm run test:unit",
+    "test:types": "tsc --noEmit",
+    "test:unit": "node --experimental-strip-types --no-warnings=ExperimentalWarning --test src/**/*.test.ts"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.5.2",
+    "@types/node": "22.20.1",
+    "typescript": "6.0.3"
+  },
+  "engines": {
+    "node": ">=22.6"
+  }
+}
